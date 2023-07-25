@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+$theme-colors: (
+  "primary":    #D92365,
+  "secondary":  #30475E,
+  "success":    #010D26,
+  "info":       #DAD9DD,
+);
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  background-image: url('assets/SL-093020-35920-01.jpg'); /* Ruta correcta de la imagen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%; /* Ajusta la altura según tus necesidades */
+}
+@import "../node_modules/bootstrap/scss/bootstrap";

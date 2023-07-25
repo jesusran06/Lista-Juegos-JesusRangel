@@ -1,0 +1,62 @@
+.margin-nav{
+  margin-right: 20%;
+  margin-left: 20%;
+}
+@media (min-width: 1201px) {
+  .margin-filter{
+    margin-top: 8%;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1065px){
+  .margin-filter{
+    margin-top: 8%;
+  }
+}
+@media (max-width: 1065px) and (min-width: 700px){
+  .margin-filter{
+    margin-top: 10%;
+  }
+}
+@media  (max-width: 699px) and (min-width: 478px){
+  .margin-filter{
+    margin-top: 15%;
+  }
+}
+@media  (max-width: 478px) and (min-width: 250px){
+  .margin-filter{
+    margin-top: 27%;
+  }
+}
+.search-input::-webkit-search-cancel-button {
+  color: black;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 48
+}
+.formulario {
+  position: fixed;
+  right: -100%;
+  transition: right 0.3s; /* Añade una transición suave para mostrar/ocultar el formulario */
+}
+/* .d-none {
+  display: none !important;
+} */
+.formulario.active {
+  right: 0;
+}
+
+.dropdown-menu .dropdown-item {
+  font-size: 18px; /* Tamaño de fuente */
+  padding: 40px 40px; /* Espacio interno (padding) de los elementos */
+  width: 300px !important;
+}
+
+.icon-detail{
+  font-size: xx-large;
+}

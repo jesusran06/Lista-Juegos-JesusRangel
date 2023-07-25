@@ -1,0 +1,47 @@
+<nav class="bg-info rounded-5 margin-nav mt-3 justify-content-center fixed-top" >
+  <div class="container-fluid my-2">
+    <form class="d-flex" role="search">
+      <div class="col-sm-10 offset-1">
+        <div class="input-group search-input">
+          <span class="material-symbols-outlined input-group-text">
+            search
+          </span>
+          <input class="form-control search-input" [(ngModel)]="inputFilter" (ngModelChange)="watcherFilters()" name="titleInput" type="search" placeholder="Search">
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+<div class="container">
+  <div class="row margin-filter justify-content-center">
+    <div class="col-12 text-center">
+        <button type="button" class="btn btn-primary dropdown-toggle"
+        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 300px;">
+          Filter games
+        </button>
+        <ul class="dropdown-menu"style="font-size: 18px; width: 300px; max-height: 300px; overflow-y: auto; overflow-x: auto;">
+          <li style="padding: 10px;">
+            <select class="form-select" [(ngModel)]="platform" (ngModelChange)="watcherFilters()"
+            aria-label="Default select example" name="platformSelect">
+              <option value="" selected>Platform</option>
+              <option value="all">Ambas</option>
+              <option value="pc">PC (Windows)</option>
+              <option value="browser">Web Browser</option>
+            </select>
+          </li>
+          <li style="padding: 10px;">
+            <select class="form-select" [(ngModel)]="genre" (ngModelChange)="watcherFilters()" aria-label="Default select example" name="genreSelect">
+              <option value="" selected>Category</option>
+              <option [value]="item" *ngFor="let item of genres">{{item}}</option>
+            </select>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

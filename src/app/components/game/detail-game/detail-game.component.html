@@ -1,0 +1,169 @@
+<div class="container-fluid px-0" *ngIf="!isLoading">
+  <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" [class.active]="isFirst" *ngFor="let screenshot of game?.screenshots; let isFirst = first">
+        <div class="carousel-caption">
+          <h1 class="text-primary title text-shadow">{{game?.title}}</h1>
+          <p class="mt-3 short-description text-shadow"><strong>{{game?.short_description}}</strong></p>
+        </div>
+        <img [src]="screenshot.image" class="d-block w-100" alt="Screenshot {{ screenshot.id }}">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="d-flex justify-content-center mt-5" *ngIf="isLoading">
+  <div class="spinner-border bg-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="container-fluid mt-5" *ngIf="!isLoading">
+  <div class="row align-items-start justify-content-center mx-3">
+    <div class="col-sm-12 col-md-5 mt-3 offset-md-1">
+      <div class="row align-items-center border-bottom mb-3">
+        <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+          <span class="material-symbols-outlined text-light icon-detail">category</span>
+        </div>
+        <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+          <h5 class="text-start text-light title-detail">Category</h5>
+        </div>
+        <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-start">
+          <span class="text-end text-light detail-value">{{game?.genre}}</span>
+        </div>
+      </div>
+      <div class="row align-items-center border-bottom mb-3">
+        <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+          <span class="material-symbols-outlined icon-detail text-light">stadia_controller</span>
+        </div>
+        <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+          <h5 class="text-start title-detail text-light">Platform</h5>
+        </div>
+        <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-end">
+          <span class="text-end detail-value text-light">{{game?.platform}}</span>
+        </div>
+      </div>
+      <div class="row align-items-center border-bottom mb-3">
+        <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+          <span class="material-symbols-outlined text-light icon-detail">keyboard</span>
+        </div>
+        <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+          <h5 class="text-start text-light title-detail">Developer</h5>
+        </div>
+        <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-end">
+          <span class="text-end text-light detail-value">{{game?.developer}}</span>
+        </div>
+      </div>
+      <div class="row align-items-center border-bottom mb-3">
+        <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+          <span class="material-symbols-outlined text-light icon-detail">apartment</span>
+        </div>
+        <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7  align-items-center">
+          <h5 class="text-start text-light title-detail">Publisher</h5>
+        </div>
+        <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-end">
+          <span class="text-end text-light detail-value">{{game?.publisher}}</span>
+        </div>
+      </div>
+      <div class="row align-items-center border-bottom mb-3">
+        <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+          <span class="material-symbols-outlined text-light icon-detail">event</span>
+        </div>
+        <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+          <h5 class="text-start text-light title-detail">Realease date</h5>
+        </div>
+        <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-center">
+          <span class="text-center text-light detail-value">{{game?.release_date}}</span>
+        </div>
+      </div>
+      <div *ngIf="game?.minimum_system_requirements">
+        <div class="row justify-content-center mt-5" *ngIf="game?.minimum_system_requirements">
+          <div class="col-12 text-center text-light">
+            <h1>Minimun Requirements</h1>
+          </div>
+        </div>
+        <div class="row align-items-center border-bottom mb-3 mt-3" *ngIf="game?.minimum_system_requirements?.os != '?'">
+          <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+            <span class="material-symbols-outlined text-light icon-detail">computer</span>
+          </div>
+          <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+            <h5 class="text-start title-detail text-light">OS</h5>
+          </div>
+          <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-start">
+            <span class="text-end detail-value text-light">{{game?.minimum_system_requirements.os}}</span>
+          </div>
+        </div>
+        <div class="row align-items-center border-bottom mb-3" *ngIf="game?.minimum_system_requirements?.processor != '?'">
+          <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+            <span class="material-symbols-outlined icon-detail text-light">memory</span>
+          </div>
+          <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+            <h5 class="text-start title-detail text-light">Processor</h5>
+          </div>
+          <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-start">
+            <span class="text-end detail-value text-light">{{game?.minimum_system_requirements.processor}}</span>
+          </div>
+        </div>
+        <div class="row align-items-center border-bottom mb-3" *ngIf="game?.minimum_system_requirements?.memory != '?'">
+          <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+            <span class="material-symbols-outlined text-light icon-detail">memory_alt</span>
+          </div>
+          <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+            <h5 class="text-start title-detail text-light">Memory</h5>
+          </div>
+          <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-start">
+            <span class="text-end detail-value text-light">{{game?.minimum_system_requirements.memory}}</span>
+          </div>
+        </div>
+        <div class="row align-items-center border-bottom mb-3" *ngIf="game?.minimum_system_requirements?.graphics != '?'">
+          <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+            <span class="material-symbols-outlined icon-detail text-light">4k_plus</span>
+          </div>
+          <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+            <h5 class="text-start title-detail text-light">Graphic Card</h5>
+          </div>
+          <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-start">
+            <span class="text-end detail-value text-light">{{game?.minimum_system_requirements.graphics}}</span>
+          </div>
+        </div>
+        <div class="row align-items-center border-bottom mb-3" *ngIf="game?.minimum_system_requirements?.storage != '?'">
+          <div class="col-1 col-sm-2 justify-content-center align-items-center mb-2">
+            <span class="material-symbols-outlined icon-detail text-light">storage</span>
+          </div>
+          <div class="col-6 col-sm-7 col-md-5 col-lg-6 col-xl-7 align-items-center">
+            <h5 class="text-start title-detail text-light">Storage</h5>
+          </div>
+          <div class="col-5 col-sm-3 col-md-5 col-lg-4 col-xl-3 px-0 align-items-start">
+            <span class="text-end detail-value text-light">{{game?.minimum_system_requirements.storage}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-5 offset-md-1 mt-3 align-items-start">
+      <h1 class="description-title text-light">{{game?.title}}</h1>
+      <p class="description-value text-light">
+        {{game?.description}}
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-12 text-center">
+      <a href="{{game?.game_url}}" target="_blank">
+        <button type="button" class="btn button-glitch"><strong>VISIT SITE</strong></button>
+      </a>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-12 text-center">
+      <button type="button" class="btn button-back-glitch" (click)="openList()"><strong>GO HOME</strong></button>
+    </div>
+  </div>
+</div>
+

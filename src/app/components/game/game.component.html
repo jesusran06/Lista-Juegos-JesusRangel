@@ -1,0 +1,2 @@
+<app-header-filter (eventFilterInput)="onFilteredInput($event)" [genres]="genres" [games]="games"></app-header-filter>
+<app-list-games [games]="gamesFiltered" [isLoading]="isLoading"></app-list-games>
